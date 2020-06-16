@@ -8,13 +8,12 @@
         <div class="lg:flex-1 mx-10">
             @include('tweet-box')
             <div class="border border-gray-300 rounded-lg">
-                @include('timeline')
-                @include('timeline')
-                @include('timeline')
-                @include('timeline')
+                @foreach($tweets as $tweet)
+                    @include('timeline')
+                @endforeach
             </div>
         </div>
-        <div class="lg:w-1/6 bg-blue-100 rounded-lg p-4">
+        <div class="lg:w-1/6">
             @include('friends-list')
         </div>
     </div>
