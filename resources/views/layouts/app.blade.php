@@ -24,7 +24,7 @@
         <section class="'px-8 py-4 mb-6">
             <header class="container mx-auto">
                 <h1>
-                    <img src="../public/images/logo.png"
+                    <img src="{{ asset('images/logo.png') }}"
                          alt="Twitter"
                     >
 
@@ -33,7 +33,17 @@
         </section>
         <section class="'px-8">
             <main class="container mx-auto">
-                @yield('content')
+                <div class="lg:flex lg:justify-between">
+                    <div class="lg:w-32">
+                        @include('sidebar-links')
+                    </div>
+                    <div class="lg:flex-1 mx-10">
+                        @yield('content')
+                    </div>
+                    <div class="lg:w-1/6">
+                        @include('friends-list')
+                    </div>
+                </div>
             </main>
         </section>
     </div>

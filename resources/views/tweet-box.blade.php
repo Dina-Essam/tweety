@@ -24,7 +24,7 @@
     </form>
 
     @error('body')
-        <p class="xl:text-red-500 text-sm mt-2">{{$message}}</p>
+        <p class="xl:text-red-500 text-sm mt-2">{{message}}</p>
     @enderror
 
 </div>
