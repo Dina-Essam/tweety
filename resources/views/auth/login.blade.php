@@ -1,13 +1,11 @@
-@extends('layouts.app')
-
-@section('content')
+<x-master>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card border-blue-500 bg-gray-100 rounded-lg">
+                <div class="card-headertext-2xl font-bold m-4">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body m-4">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -53,7 +51,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="bg-blue-500 rounded-full p-2 pr-4 pl-4 m-4 text-white">
                                     {{ __('Login') }}
                                 </button>
 
@@ -70,4 +68,5 @@
         </div>
     </div>
 </div>
-@endsection
+</x-master>
+
