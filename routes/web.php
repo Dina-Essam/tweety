@@ -19,11 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/tweets/{tweet}/like', 'TweetLikesController@store')->name('like');
+Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy')->name('dislike');
 Route::get('/tweets','TweetController@index')->name('home');
 Route::post('/tweets','TweetController@store');
 Route::post('/profiles/{user:username}/follow','FollowsController@store')->name('follow');
 Route::get('/profiles/{user:username}/edit','ProfilesController@edit')->middleware(['auth','can:edit,user']);
 Route::patch('/profiles/{user:username}','ProfilesController@update')->middleware(['auth','can:edit,user']);
 Route::get('/explore','ExploreController@index')->name('explore');
+
 
 Route::get('/profiles/{user:username}','ProfilesController@show')->name('profile');
