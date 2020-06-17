@@ -1,7 +1,7 @@
 @if(auth()->user()->isNot($user))
     <form
         method="POST"
-        action="{{route('follow',$user->name)}}"
+        action="{{route('follow',$user->username)}}"
     >
         @csrf
         <button
