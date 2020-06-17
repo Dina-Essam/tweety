@@ -13,19 +13,10 @@
                 <p class="text-sm">Joined {{$user->created_at->diffForHumans()}}</p>
             </div>
             <div class="flex">
-                <a href="" class="bg-white-500 rounded-full border mr-2 border-gray-300 py-2 px-4 text-black text-xs">Edit Profile</a>
-                <form
-                    method="POST"
-                    action="{{route('follow',$user->name)}}"
-                >
-                    @csrf
-                    <button
-                        type="submit"
-                        class="bg-blue-500 rounded-full shadow py-2 px-4 text-white text-xs"
-                    >
-                        {{auth()->user()->following($user)?'Unfollow Me':'Follow Me'}}
-                    </button>
-                </form>
+                @can('edit',$user)
+                    <a href="{{$user->path('edit')}}" class="bg-white-500 rounded-full border mr-2 border-gray-300 py-2 px-4 text-black text-xs">Edit Profile</a>
+                @endcan
+                <x-follow-button :user="$user"></x-follow-button>
             </div>
         </div>
         <p class="text-sm">Be good and shall always see good in everything and everyone and even in yourself.

@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)->latest();
     }
 
     public function timeline()
@@ -54,6 +54,12 @@ class User extends Authenticatable
         return Tweet::whereIn('user_id',$friends)
             ->orWhere('user_id',$this->id)
             ->latest()->get();
+    }
+
+    public function path($append='')
+    {
+        $path = route('profile' , $this->name);
+        return $append ? "{$path}/{$append}" : $path;
     }
 
 }
