@@ -33,4 +33,5 @@
     [
         'tweets'=>$tweets
     ])
+
 </x-app>

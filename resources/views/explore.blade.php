@@ -49,7 +49,6 @@
                 </div>
             @endif
         @empty
-
         @endforelse
 
         {{ $users->links() }}
