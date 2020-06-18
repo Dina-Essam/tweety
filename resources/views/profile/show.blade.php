@@ -31,6 +31,6 @@
 
     @include('timeline',
     [
-        'tweets'=>$user->tweets
+        'tweets'=>$tweets
     ])
 </x-app>
